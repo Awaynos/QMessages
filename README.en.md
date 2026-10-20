@@ -245,6 +245,33 @@ Snippets, hotkeys and the clipboard stay local. No account, cloud or telemetry.
 - [ ] A separate "save from clipboard" hotkey
 - [ ] Configurable wheel size
 - [ ] English UI localization
+- [ ] Linux support
+- [ ] macOS support
+
+---
+
+## Contributing
+
+Bug reports, ideas and pull requests are welcome. See
+[CONTRIBUTING.en.md](CONTRIBUTING.en.md) ([Русский](CONTRIBUTING.md)).
+
+---
+
+## ❤️ Support the project
+
+Developing QMessages takes time — any support is appreciated 🫡
+
+**Important:** send funds **only on the specified network** — a transfer on another network may be lost forever.
+
+| Coin | Network | Address |
+|---|---|---|
+| **Bitcoin (BTC)** | Bitcoin (SegWit) | `bc1qfaylkgnwct052snamqmnxl3uk26xpt5jg344fs` |
+| **Ethereum (ETH)** | ERC-20 | `0x44628629c1C6f8E8591d4f93735Ff6CD70DC8AfC` |
+| **Tether (USDT)** | BEP-20 (BSC) | `0x44628629c1C6f8E8591d4f93735Ff6CD70DC8AfC` |
+| **Solana (SOL / SPL)** | Solana | `3sTNRxJqATsJsKWyM5dxi4HHMLEKbp8f8dGU4wJ1xmE9` |
+
+Support is completely voluntary. You can also help without money: report a bug,
+suggest an idea, translate the interface or just star the project.
 
 ---
 

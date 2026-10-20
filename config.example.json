@@ -1,0 +1,19 @@
+{
+  "hotkey": "caps_lock",
+  "hold_delay_ms": 90,
+  "select_on_release": true,
+  "press_enter": false,
+  "paste_method": "clipboard",
+  "restore_clipboard": true,
+  "restore_delay_ms": 800,
+  "snippets": [
+    {"label": "ПРИВЕТ", "text": "Привет! Как дела?"},
+    {"label": "СПС", "text": "Спасибо!"},
+    {"label": "ОК", "text": "ок"},
+    {"label": "1 МИН", "text": "секунду, я сейчас"},
+    {"label": "ПОЗЖЕ", "text": "давай позже"},
+    {"label": "СОЗВОН", "text": "можем созвониться?"},
+    {"label": "ЖДУ", "text": "жду :)"},
+    {"label": "ПОКА", "text": "до связи!"}
+  ]
+}

@@ -10,6 +10,8 @@ Hold a hotkey → pick a message → release. The text is already in the chat.
 
 [Русский](README.md) · **English**
 
+**Ecosystem:** [QTranslate](https://github.com/Awaynos/QTranslate-R) — a Windows translator.
+
 ![Version](https://img.shields.io/badge/version-1.0-9c9c9c?style=flat-square)
 ![License](https://img.shields.io/badge/license-PolyForm_Noncommercial-8f8f8f?style=flat-square)
 ![Python](https://img.shields.io/badge/Python-3.11-4b8bbe?style=flat-square&logo=python&logoColor=white)
@@ -87,36 +89,39 @@ select-on-release, paste method, send-on-Enter and clipboard restore.
 
 ---
 
-## Install and run
+## Download
 
-### Portable build
+Ready builds are on the [Releases](https://github.com/Awaynos/QMessages/releases/latest) tab:
+
+| File | What it is |
+|---|---|
+| `QMessages-1.0-win64.zip` | universal archive (26 MB) |
+| `QMessages-1.0-win64.rar` | WinRAR archive (22 MB) |
+| `SHA256SUMS.txt` | SHA-256 checksums |
+
+1. Download ZIP or RAR.
+2. Extract — the `QMessages` folder is inside.
+3. Run `QMessages.exe`.
+
+Python, Qt and the libraries are already inside. Nothing to install.
+
+Settings live in `%APPDATA%\QMessages\config.json`, not next to the exe. On a new
+device the app creates defaults; copy that file to bring your snippets along.
+
+---
+
+## Build
 
 ```bat
 build.bat
 ```
 
-The ready app appears in `dist\QMessages`. Move the whole folder to another PC or
-drive — Python, Qt and the libraries are already inside. Nothing to install.
+Requires Python 3.11+: `setup.bat` creates `.venv` and installs the dependencies.
+The ready app appears in `dist\QMessages`. The icon is `icon.ico`, metadata is in
+`file_version_info.txt`. The `--settings` and `--preview` flags open the settings
+window and the wheel without the global hotkey.
 
-Settings live in `%APPDATA%\QMessages\config.json`, not next to the exe. On a new
-device the app creates defaults; copy that file to bring your snippets along.
-
-The `dist` folder is not committed to the repository, so there is no ready exe
-in the source tree.
-
-### From source
-
-Requires **Python 3.11+**.
-
-```powershell
-git clone https://github.com/Awaynos/QMessages.git
-cd QMessages
-setup.bat
-start.bat
-```
-
-`setup.bat` creates `.venv` and installs the dependencies. `start.bat` runs without
-a console, `run.bat` runs with one for debugging.
+How to help and how to run from source — see [CONTRIBUTING.en.md](CONTRIBUTING.en.md).
 
 ---
 
@@ -250,13 +255,6 @@ Snippets, hotkeys and the clipboard stay local. No account, cloud or telemetry.
 
 ---
 
-## Contributing
-
-Bug reports, ideas and pull requests are welcome. See
-[CONTRIBUTING.en.md](CONTRIBUTING.en.md) ([Русский](CONTRIBUTING.md)).
-
----
-
 ## ❤️ Support the project
 
 Developing QMessages takes time — any support is appreciated 🫡
@@ -270,8 +268,8 @@ Developing QMessages takes time — any support is appreciated 🫡
 | **Tether (USDT)** | BEP-20 (BSC) | `0x44628629c1C6f8E8591d4f93735Ff6CD70DC8AfC` |
 | **Solana (SOL / SPL)** | Solana | `3sTNRxJqATsJsKWyM5dxi4HHMLEKbp8f8dGU4wJ1xmE9` |
 
-Support is completely voluntary. You can also help without money: report a bug,
-suggest an idea, translate the interface or just star the project.
+Support is completely voluntary. You can also help without money — see
+[CONTRIBUTING.en.md](CONTRIBUTING.en.md).
 
 ---
 

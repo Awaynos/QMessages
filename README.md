@@ -10,6 +10,8 @@
 
 **Русский** · [English](README.en.md)
 
+**Экосистема:** [QTranslate](https://github.com/Awaynos/QTranslate-R) — переводчик для Windows.
+
 ![Версия](https://img.shields.io/badge/версия-1.0-9c9c9c?style=flat-square)
 ![Лицензия](https://img.shields.io/badge/лицензия-PolyForm_Noncommercial-8f8f8f?style=flat-square)
 ![Python](https://img.shields.io/badge/Python-3.11-4b8bbe?style=flat-square&logo=python&logoColor=white)
@@ -87,36 +89,40 @@ QMessages вырос из той же идеи, что и QTranslate-R: мале
 
 ---
 
-## Установка и запуск
+## Скачать
 
-### Портативная сборка
+Готовые сборки — во вкладке [Releases](https://github.com/Awaynos/QMessages/releases/latest):
+
+| Файл | Что это |
+|---|---|
+| `QMessages-1.0-win64.zip` | универсальный архив (26 МБ) |
+| `QMessages-1.0-win64.rar` | архив для WinRAR (22 МБ) |
+| `SHA256SUMS.txt` | контрольные суммы SHA-256 |
+
+1. Скачай ZIP или RAR.
+2. Распакуй — внутри папка `QMessages`.
+3. Запусти `QMessages.exe`.
+
+Python, Qt и библиотеки уже внутри. Устанавливать ничего не нужно.
+
+Настройки хранятся в `%APPDATA%\QMessages\config.json` и не лежат рядом с exe.
+На новом устройстве создаются настройки по умолчанию; чтобы перенести свои —
+скопируй этот файл.
+
+---
+
+## Сборка
 
 ```bat
 build.bat
 ```
 
-Готовое приложение появится в `dist\QMessages`. Папку можно переносить на другой
-компьютер или диск: Python, Qt и библиотеки уже внутри, устанавливать ничего не нужно.
+Нужен Python 3.11+: `setup.bat` создаст `.venv` и поставит зависимости.
+Готовое приложение появится в `dist\QMessages`. Иконка — `icon.ico`, метаданные —
+`file_version_info.txt`. Флаги `--settings` и `--preview` показывают настройки
+и колесо без запуска хоткея.
 
-Настройки хранятся в `%APPDATA%\QMessages\config.json` и не лежат рядом с exe.
-На новом устройстве приложение создаст настройки по умолчанию; чтобы перенести
-свои — скопируй этот файл.
-
-В репозиторий папка `dist` не коммитится, поэтому готового exe в исходниках нет.
-
-### Из исходников
-
-Нужен **Python 3.11+**.
-
-```powershell
-git clone https://github.com/Awaynos/QMessages.git
-cd QMessages
-setup.bat
-start.bat
-```
-
-`setup.bat` создаёт `.venv` и ставит зависимости. `start.bat` запускает без консоли,
-`run.bat` — с консолью для отладки.
+Как помочь проекту и как запустить исходники — в [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ---
 
@@ -249,13 +255,6 @@ QMessages/
 
 ---
 
-## Участие
-
-Баги, идеи и pull request'ы приветствуются. Как помочь — в
-[CONTRIBUTING.md](CONTRIBUTING.md) ([English](CONTRIBUTING.en.md)).
-
----
-
 ## ❤️ Поддержать проект
 
 Разработка QMessages занимает время — буду благодарен за поддержку 🫡
@@ -269,8 +268,8 @@ QMessages/
 | **Tether (USDT)** | BEP-20 (BSC) | `0x44628629c1C6f8E8591d4f93735Ff6CD70DC8AfC` |
 | **Solana (SOL / SPL)** | Solana | `3sTNRxJqATsJsKWyM5dxi4HHMLEKbp8f8dGU4wJ1xmE9` |
 
-Поддержка полностью добровольна. Помочь можно и без денег: сообщить о баге,
-предложить идею, перевести интерфейс или просто поставить звезду проекту.
+Поддержка полностью добровольна. Помочь можно и без денег — варианты в
+[CONTRIBUTING.md](CONTRIBUTING.md).
 
 ---
 

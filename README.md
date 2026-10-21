@@ -217,6 +217,8 @@ QMessages/
   paste.py           вставка через буфер или посимвольно
   config.py          config.json в %APPDATA%\QMessages
   theme.py           палитра Metal и стили
+  ui_icons.py        иконки кнопок: загрузка, перекраска, кэш
+  icons/             SVG-иконки кнопок
   icon.ico / icon.png
   VERSION.txt
   file_version_info.txt

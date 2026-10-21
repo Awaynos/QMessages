@@ -218,6 +218,8 @@ QMessages/
   paste.py           clipboard or character-by-character paste
   config.py          config.json in %APPDATA%\QMessages
   theme.py           Metal palette and styles
+  ui_icons.py        button icons: loading, tinting, cache
+  icons/             button icon SVGs
   icon.ico / icon.png
   VERSION.txt
   file_version_info.txt

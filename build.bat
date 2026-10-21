@@ -8,6 +8,7 @@ if errorlevel 1 goto :error
   --icon icon.ico ^
   --version-file file_version_info.txt ^
   --add-data "icon.ico;." ^
+  --add-data "icons;icons" ^
   --exclude-module PySide6.QtWebEngineCore ^
   --exclude-module PySide6.QtWebEngineWidgets ^
   --exclude-module PySide6.QtWebEngineQuick ^

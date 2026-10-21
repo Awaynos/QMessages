@@ -26,6 +26,7 @@ from PySide6.QtWidgets import (
 from config import make_label
 from hotkeys import parse_hotkey
 from theme import METAL, settings_qss
+from ui_icons import apply_icon
 from winapi import enable_dark_titlebar
 
 
@@ -33,6 +34,11 @@ def _card():
     frame = QFrame()
     frame.setObjectName("card")
     return frame
+
+
+def _icon_only(button, name, color=None):
+    if apply_icon(button, name, color):
+        button.setText("")
 
 
 class SnippetDelegate(QStyledItemDelegate):
@@ -382,6 +388,7 @@ class SettingsWindow(QDialog):
         reset = QPushButton("Сброс")
         reset.setObjectName("ghost")
         reset.setToolTip("Вернуть CapsLock")
+        apply_icon(reset, "reset")
         reset.clicked.connect(self._reset_hotkey)
         top.addWidget(reset)
         hint = QLabel("Нажмите на клавишу и введите комбинацию. Она работает глобально.")
@@ -472,16 +479,18 @@ class SettingsWindow(QDialog):
         tools = QHBoxLayout()
         tools.setSpacing(6)
         add_button = QPushButton("Добавить")
+        apply_icon(add_button, "add")
         add_button.clicked.connect(self._add)
         delete_button = QPushButton("Удалить")
+        apply_icon(delete_button, "delete")
         delete_button.clicked.connect(self._delete)
         up_button = QPushButton("↑")
-        up_button.setFixedWidth(34)
         up_button.setToolTip("Выше")
+        _icon_only(up_button, "up")
         up_button.clicked.connect(lambda: self._move(-1))
         down_button = QPushButton("↓")
-        down_button.setFixedWidth(34)
         down_button.setToolTip("Ниже")
+        _icon_only(down_button, "down")
         down_button.clicked.connect(lambda: self._move(1))
         tools.addWidget(add_button)
         tools.addWidget(delete_button)
@@ -522,6 +531,7 @@ class SettingsWindow(QDialog):
         editor_tools = QHBoxLayout()
         from_clipboard = QPushButton("Вставить из буфера")
         from_clipboard.setObjectName("ghost")
+        apply_icon(from_clipboard, "paste")
         from_clipboard.clicked.connect(self._paste_from_clipboard)
         editor_tools.addWidget(from_clipboard)
         editor_tools.addStretch()
@@ -541,9 +551,11 @@ class SettingsWindow(QDialog):
         self.status_label.setObjectName("status")
         footer.addWidget(self.status_label, 1)
         cancel_button = QPushButton("Отмена")
+        apply_icon(cancel_button, "cancel")
         cancel_button.clicked.connect(self.reject)
         save_button = QPushButton("Сохранить")
         save_button.setObjectName("primary")
+        apply_icon(save_button, "save", METAL["act_text"])
         save_button.clicked.connect(self._save)
         footer.addWidget(cancel_button)
         footer.addWidget(save_button)

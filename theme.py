@@ -98,6 +98,17 @@ QPlainTextEdit {
 QLineEdit:focus, QSpinBox:focus, QPlainTextEdit:focus {
     border-color: %(focus)s;
 }
+QSpinBox::up-button, QSpinBox::down-button {
+    width: 0;
+    height: 0;
+    border: none;
+    background: transparent;
+}
+QSpinBox::up-arrow, QSpinBox::down-arrow {
+    image: none;
+    width: 0;
+    height: 0;
+}
 QComboBox {
     background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 %(btn_top)s, stop:1 %(btn_bottom)s);
     border: 1px solid %(border)s;
@@ -153,6 +164,20 @@ QPushButton:pressed {
 }
 QPushButton:disabled {
     color: %(muted)s;
+}
+QPushButton#stepper {
+    padding: 0;
+    min-width: 26px;
+    max-width: 26px;
+    min-height: 26px;
+    max-height: 26px;
+}
+QPushButton#stepper:pressed {
+    padding: 0;
+}
+QPushButton#stepper:disabled {
+    background: %(surface_alt)s;
+    border-color: %(border)s;
 }
 QPushButton#primary {
     background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 %(act_top)s, stop:1 %(act_bottom)s);

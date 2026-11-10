@@ -406,10 +406,34 @@ class SettingsWindow(QDialog):
         self.delay_spin.setRange(0, 1000)
         self.delay_spin.setSingleStep(10)
         self.delay_spin.setSuffix(" мс")
-        self.delay_spin.setFixedWidth(96)
+        self.delay_spin.setFixedWidth(86)
         self.delay_spin.setToolTip("Сколько держать бинд до появления колеса")
+
+        self.delay_down = QPushButton()
+        self.delay_down.setObjectName("stepper")
+        self.delay_down.setFixedSize(26, 26)
+        self.delay_down.setToolTip("Уменьшить задержку")
+        self.delay_down.setAutoRepeat(True)
+        apply_icon(self.delay_down, "minus", size=14)
+        self.delay_down.clicked.connect(lambda: self._step_delay(-1))
+
+        self.delay_up = QPushButton()
+        self.delay_up.setObjectName("stepper")
+        self.delay_up.setFixedSize(26, 26)
+        self.delay_up.setToolTip("Увеличить задержку")
+        self.delay_up.setAutoRepeat(True)
+        apply_icon(self.delay_up, "add", size=14)
+        self.delay_up.clicked.connect(lambda: self._step_delay(1))
+
+        delay_layout = QHBoxLayout()
+        delay_layout.setContentsMargins(0, 0, 0, 0)
+        delay_layout.setSpacing(4)
+        delay_layout.addWidget(self.delay_spin)
+        delay_layout.addWidget(self.delay_down, 0, Qt.AlignmentFlag.AlignVCenter)
+        delay_layout.addWidget(self.delay_up, 0, Qt.AlignmentFlag.AlignVCenter)
+
         options.addWidget(delay_label, 0, 0)
-        options.addWidget(self.delay_spin, 0, 1)
+        options.addLayout(delay_layout, 0, 1)
 
         self.release_check = QCheckBox("Выбор при отпускании")
         options.addWidget(self.release_check, 0, 2)
@@ -434,6 +458,7 @@ class SettingsWindow(QDialog):
         layout.addLayout(options)
 
         self.delay_spin.setValue(self._config["hold_delay_ms"])
+        self._sync_delay_buttons(self.delay_spin.value())
         self.release_check.setChecked(self._config["select_on_release"])
         self.enter_check.setChecked(self._config["press_enter"])
         self.restore_check.setChecked(self._config["restore_clipboard"])
@@ -441,11 +466,20 @@ class SettingsWindow(QDialog):
         self.paste_combo.setCurrentIndex(max(0, paste_index))
 
         self.delay_spin.valueChanged.connect(lambda _value: self._set_dirty(True))
+        self.delay_spin.valueChanged.connect(self._sync_delay_buttons)
         self.release_check.toggled.connect(lambda _value: self._set_dirty(True))
         self.enter_check.toggled.connect(lambda _value: self._set_dirty(True))
         self.restore_check.toggled.connect(lambda _value: self._set_dirty(True))
         self.paste_combo.currentIndexChanged.connect(lambda _value: self._set_dirty(True))
         return card
+
+    def _step_delay(self, direction):
+        step = self.delay_spin.singleStep()
+        self.delay_spin.setValue(self.delay_spin.value() + direction * step)
+
+    def _sync_delay_buttons(self, value):
+        self.delay_down.setEnabled(value > self.delay_spin.minimum())
+        self.delay_up.setEnabled(value < self.delay_spin.maximum())
 
     def _build_body(self):
         body = QHBoxLayout()
